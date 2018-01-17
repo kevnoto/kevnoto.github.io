@@ -37,7 +37,7 @@
 	// });
 
 	// hintRight.addEventListener('animationend', resetAnimation);	
-
+	// tick();
 	setInterval(tick, 1000);
 
 	function openBookmarks() {
@@ -57,7 +57,7 @@
 	}
 
 	function tick() {
-		var t = moment().format("HH:mm");
+		var t = moment().format("HH:mm:ss");
 		var d = moment().format("dddd, MMMM Do YYYY");
 		timeDisplay.innerHTML = Sanitizer.escapeHTML(t);
 		dateDisplay.innerHTML = Sanitizer.escapeHTML(d);
