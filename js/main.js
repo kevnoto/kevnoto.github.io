@@ -10,6 +10,11 @@
 	// var bookmarksBtn = hintBottom.querySelector('span:last-child');
 	// var loadImageBtn = hintRight.querySelector('span:last-child');
 	// var closeBtn = document.querySelector('.hint.top.left span:last-child');
+	var weather = document.querySelector('.weather');
+	$("#dashboard").hide();
+	var dash_show = false;
+	$("#datetime").hide();
+	get_random_vid();
 
 	// document.addEventListener('click', function(e) {
 	// 	if (bookmarksBtn.contains(e.target) && !bookmarks.classList.contains('open')) {
@@ -36,9 +41,31 @@
 	// 	}
 	// });
 
+	document.addEventListener('keydown', function(e) {
+		if (e.keyCode === 16) {
+			toggleDashboard();
+		}
+	});
+
+
 	// hintRight.addEventListener('animationend', resetAnimation);	
-	// tick();
+	
+	setTimeout(function(){
+		$("#datetime").fadeIn(2000);
+	    //do what you need here
+	}, 500);
 	setInterval(tick, 1000);
+
+	function toggleDashboard() {
+		if (dash_show == true) {
+			$("#dashboard").fadeOut()
+		} else {
+			$("#dashboard").fadeIn()
+		}
+		dash_show = !dash_show
+	}
+
+
 
 	function openBookmarks() {
 		bookmarks.classList.add('open');
@@ -62,4 +89,19 @@
 		timeDisplay.innerHTML = Sanitizer.escapeHTML(t);
 		dateDisplay.innerHTML = Sanitizer.escapeHTML(d);
 	}
+
+	function get_random_vid() {
+		console.log("Loading random video...");
+		var urls = ["media/ISScut.mp4",
+		"https://giant.gfycat.com/DimwittedIndelibleCrocodileskink.webm",
+		"media/SFcut.mp4",
+		"media/Ship1.mp4",
+		// "media/Ship2.mp4",
+		"media/Ship3.mp4"
+		];
+		var randomIndex = Math.floor(Math.random() * urls.length);
+		$("#video").attr("src",urls[randomIndex]);
+		$("#bgvid")[0].load();
+	}
+
 })();
