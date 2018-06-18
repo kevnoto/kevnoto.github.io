@@ -92,12 +92,12 @@
 
 	function get_random_vid() {
 		console.log("Loading random video...");
-		var urls = ["media/ISScut.mp4",
+		var urls = [
+		"https://s3-us-west-1.amazonaws.com/sup1337/ISScut.mp4",
 		"https://giant.gfycat.com/DimwittedIndelibleCrocodileskink.webm",
-		"media/SFcut.mp4",
-		"media/Ship1.mp4",
-		// "media/Ship2.mp4",
-		"media/Ship3.mp4"
+		"https://s3-us-west-1.amazonaws.com/sup1337/SFcut.mp4",
+		"https://s3-us-west-1.amazonaws.com/sup1337/Ship1.mp4",
+		"https://s3-us-west-1.amazonaws.com/sup1337/Ship3.mp4"
 		];
 		var randomIndex = Math.floor(Math.random() * urls.length);
 		$("#video").attr("src",urls[randomIndex]);

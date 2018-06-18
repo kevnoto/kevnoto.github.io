@@ -29,7 +29,7 @@ body {
 }
 
 h1, h2 {
-	opacity: 0.8;
+	opacity: 1;
 	font-size: 2.5rem;
 }
 
@@ -45,6 +45,12 @@ h2 {
 	font-weight: 300;
     font-size: 1.5rem;
     text-align: center;
+}
+
+h3 {
+    font-size: 1.5rem;
+    font-weight: 300;
+    text-align: left;
 }
 .container {
     width: 70%;
@@ -82,13 +88,21 @@ a:focus {
     color: inherit;
 }
 
-.weather {
+.dashboard{
     display: none;
     position: absolute;
     top: 0;
+    left: 0;
+    height: 100%;
+}
+
+.weather {
+    display: flex;
+    position: relative;
+    top: 0;
     left: 2rem; 
     text-align: center;
-    color: #aaa;
+    color: white;
 }
 
 .weather.active {
@@ -141,7 +155,7 @@ a:focus {
     color: white;
     background-color: #000;
     border: 0;
-    opacity: 0.6;
+    opacity: 0.5;
 }
 
 .search__input:focus {
@@ -391,4 +405,46 @@ a:focus {
 
 #save {
     margin-bottom: 2rem;
+}
+
+video#bgvid { 
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    background-size: cover; 
+}
+
+.zion {
+    color: white;
+}
+
+div.zion {
+    margin-top: 2em;
+}
+
+table.zion{
+    margin-left: 2em;
+}
+th.zion, td.zion {
+    font-size: 1em;
+    padding:.5em;
+    border-collapse: collapse;
+    font-weight: 300;
+}
+
+td.zion {
+    border-top: 1px solid #aaa;
+}
+
+td.zion.cond {
+    font-size: .5em;
 }

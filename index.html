@@ -3,6 +3,7 @@
 
 <head>
     <title>Welcome</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="css/reset.css">
@@ -12,7 +13,12 @@
 </head>
 
 <body>
-    <div class="background"></div>
+    <!-- <div class="background"></div> -->
+
+    <video playsinline autoplay muted loop id="bgvid">
+        <!-- <source src="media/ISS.webm" type="video/webm"> -->
+        <source id="video" src="media/ISScut.mp4" type="video/mp4">
+    </video>
     <div class="bookmarks">
         <div class="hint top left">
             <span>Esc</span>&nbsp;&nbsp;&nbsp;<span>Close</span>
@@ -21,7 +27,7 @@
         <div class="bookmarks-background"></div>
         <div class="bookmarks-wrap"></div>
     </div>
-    <div class="container center">
+    <div class="container center" id="datetime">
         <h1 class="time"></h1>
         <h2 class="date"></h2>
         <div class="search">
@@ -38,23 +44,98 @@
         <span>Ctrl + b</span>&nbsp;&nbsp;&nbsp;<span>Bookmarks</span>
     </div>
  -->
-    <a href="https://www.wunderground.com/weather/us/ca/berkeley?cm_ven=localwx_today">
-        <div class="weather">
+    <div class="dashboard" id="dashboard">
+        <div class="weather local">
             <div class="weather__heading">
-                <h3 class="weather__temperature"></h3><span class="weather__unit"></span>
-                <i class="weather__condition"></i>
+            <a href="https://www.wunderground.com/weather/us/ca/berkeley?cm_ven=localwx_today">
+                <h3 class="weather__temperature local"></h3><span class="weather__unit local"></span>
+                <i class="weather__condition local"></i>          
+            </a>
             </div>
             <div class="weather__subheading">
-                <h4 class="weather__condition-text"></h4>&nbsp;&centerdot;&nbsp; 
-                <h4 class="weather__location"></h4>
+                <h4 class="weather__condition-text local"></h4>&nbsp;&centerdot;&nbsp; 
+                <h4 class="weather__location local"></h4>
             </div>
         </div>
-    </a>
+    <!-- <a href="https://wwwapps.ups.com/WebTracking/processInputRequest?tracknum=1ZR0Y0651257867008">
+        <div class="weather">
+            <h4 class="weather__location">Laptop</h4>
+        </div>
+    </a> -->
+        <div class="weather zion">
+            <div class="weather__heading">
+                <a href="https://www.wunderground.com/weather/th/si-chiang-mai">
+                <h3 class="weather__temperature zion"></h3><span class="weather__unit zion"></span>
+                <i class="weather__condition zion"></i>
+                </a>
+            </div>
+            <div class="weather__subheading">
+                <h4 class="weather__condition-text zion"></h4>&nbsp;&centerdot;&nbsp; 
+                <h4 class="weather__location zion"></h4>
+            </div>
+        </div>
+
+        <table class="zion">
+            <tr>
+                <th class="zion"></th>
+                <th class="zion"></th>
+                <th class="zion"></th>
+                <th class="zion"></th>
+                <th class="zion"></th>
+                <th class="zion"></th>
+                <th class="zion"></th>
+                <th class="zion"></th>
+                <th class="zion"></th>
+                <th class="zion"></th>
+                <th class="zion"></th>
+            </tr>
+            <tr>
+                <td class="zion cond">C</td>
+                <td class="zion cond"></td>
+                <td class="zion cond"></td>
+                <td class="zion cond"></td>
+                <td class="zion cond"></td>
+                <td class="zion cond"></td>
+                <td class="zion cond"></td>
+                <td class="zion cond"></td>
+                <td class="zion cond"></td>
+                <td class="zion cond"></td>
+                <td class="zion cond"></td>
+            </tr>
+            <tr>
+                <td class="zion high">H</td>
+                <td class="zion high"></td>
+                <td class="zion high"></td>
+                <td class="zion high"></td>
+                <td class="zion high"></td>
+                <td class="zion high"></td>
+                <td class="zion high"></td>
+                <td class="zion high"></td>
+                <td class="zion high"></td>
+                <td class="zion high"></td>
+                <td class="zion high"></td>
+            </tr>
+            <tr>
+                <td class="zion low">L</td>
+                <td class="zion low"></td>
+                <td class="zion low"></td>
+                <td class="zion low"></td>
+                <td class="zion low"></td>
+                <td class="zion low"></td>
+                <td class="zion low"></td>
+                <td class="zion low"></td>
+                <td class="zion low"></td>
+                <td class="zion low"></td>
+                <td class="zion low"></td>
+            </tr>
+        </table>
+    </div>
 
     <!-- <a href="options.html" class="bottom left">Options</a> -->
     <div class="credit"></div>
     <script src="js/sanitizer.js"></script>
     <script src="js/weather.js"></script>
+    <script src="js/weather_zion.js"></script>
     <script src="js/search.js"></script>
     <script src="js/config.js"></script>
     <script src="js/images.js"></script>
@@ -63,6 +144,7 @@
     <script src="js/site-info.js"></script>
     <script src="js/quick-links.js"></script>
     <script src="js/main.js"></script>
+
 </body>
 
 </html>
