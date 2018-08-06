@@ -11,7 +11,7 @@
 	
 	// Weather API
     var PATH_WEATHER_BASE = 'https://query.yahooapis.com/v1/public/yql';
-    var PATH_USER_LOCATION = '94702';
+    var PATH_USER_LOCATION = '94587';
     var PATH_USER_UNIT = 'f';
     var PATH_SQL_QUERY = 'q=select * from weather.forecast where woeid in (select woeid from geo.places(1) where text="' + PATH_USER_LOCATION + '") and u="' + PATH_USER_UNIT + '"';
     var PATH_ARRAY_FORMAT = 'format=json&diagnostics=false&env=store://datatables.org/alltableswithkeys&callback=';
