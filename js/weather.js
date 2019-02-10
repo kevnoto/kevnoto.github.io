@@ -17,17 +17,16 @@
     var PATH_ARRAY_FORMAT = 'format=json&diagnostics=false&env=store://datatables.org/alltableswithkeys&callback=';
 
     var url = encodeURI(PATH_WEATHER_BASE + '?' + PATH_SQL_QUERY + '&' + PATH_ARRAY_FORMAT);
-
+    var url = 'http://api.wunderground.com/api/c2437febb59edd66/forecast10day/conditions/q/37.770421,-122.409390.json'
     // Query the API
     var request = new XMLHttpRequest();
     request.onreadystatechange = function() {
         if (request.readyState === XMLHttpRequest.DONE) {
             if (request.status === 200) {
-            	weather.classList.add('active');
+                weather.classList.add('active');
                 updateWeather(JSON.parse(request.responseText));
-                // console.log(JSON.parse(request.responseText));
             } else {
-                console.log('Error getting weather information.');
+                alert('Error getting weather information.');
             }
         }
     }
@@ -35,13 +34,40 @@
     request.open('GET', url);
     request.send();
 
-    function updateWeather(data) {
+    function updateWeather(raw_data) {
+        console.log(raw_data);
+        data = raw_data.forecast.simpleforecast.forecastday;
+
+        for (i=0; i<10; i++) {
+            forecasts_high[i].innerHTML = data[i].high.fahrenheit;
+            forecasts_low[i].innerHTML = data[i].low.fahrenheit;
+            forecasts_cond[i].innerHTML = data[i].conditions;
+            dates[i].innerHTML = data[i].date.monthname_short + ' ' + data[i].date.day.toString();
+        }
+
+        temperature.innerHTML = raw_data.current_observation.temp_f.toString() + '&deg;';
+        unit.innerHTML = "F";
+        // condition.classList.add('icon-' + raw_data.current_observation.icon);
+        conditionText.innerHTML = raw_data.current_observation.weather;
+        location.innerHTML = raw_data.current_observation.observation_location.full;
+    }
+
+    function updateWeatherYahoo(data) {
+        console.log(data);
         data = data.query.results.channel;
+
+        for (i=1; i<11; i++) {
+            forecasts_high[i].innerHTML = data.item.forecast[i-1].high;
+            forecasts_low[i].innerHTML = data.item.forecast[i-1].low;
+            forecasts_cond[i].innerHTML = data.item.forecast[i-1].text;
+            dates[i].innerHTML = data.item.forecast[i-1].date.substring(0,7);
+        }
 
         temperature.innerHTML = data.item.condition.temp + '&deg;';
         unit.innerHTML = data.units.temperature;
         condition.classList.add('icon-' + data.item.condition.code);
         conditionText.innerHTML = data.item.condition.text;
         location.innerHTML = data.location.city + ', ' + data.location.country;
+
     }
 })();
