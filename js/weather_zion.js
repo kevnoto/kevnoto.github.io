@@ -48,7 +48,7 @@
             dates[i].innerHTML = data[i].date.monthname_short + ' ' + data[i].date.day.toString();
         }
 
-        temperature.innerHTML = raw_data.current_observation.temp_f.toString() + '&deg;';
+        temperature.innerHTML = raw_data.current_observation.temp_f.toFixed(0).toString() + '&deg;';
         unit.innerHTML = "F";
         // condition.classList.add('icon-' + raw_data.current_observation.icon);
         conditionText.innerHTML = raw_data.current_observation.weather;
@@ -66,7 +66,7 @@
             dates[i].innerHTML = data.item.forecast[i-1].date.substring(0,7);
         }
 
-        temperature.innerHTML = data.item.condition.temp + '&deg;';
+        temperature.innerHTML = data.item.condition.temp.toFixed(0) + '&deg;';
         unit.innerHTML = data.units.temperature;
         condition.classList.add('icon-' + data.item.condition.code);
         conditionText.innerHTML = data.item.condition.text;
