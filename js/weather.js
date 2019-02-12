@@ -17,7 +17,7 @@
     var PATH_ARRAY_FORMAT = 'format=json&diagnostics=false&env=store://datatables.org/alltableswithkeys&callback=';
 
     var url = encodeURI(PATH_WEATHER_BASE + '?' + PATH_SQL_QUERY + '&' + PATH_ARRAY_FORMAT);
-    var url = 'http://api.wunderground.com/api/c2437febb59edd66/forecast10day/conditions/q/37.770421,-122.409390.json'
+    var url = 'https://api.wunderground.com/api/c2437febb59edd66/forecast10day/conditions/q/37.770421,-122.409390.json'
     // Query the API
     var request = new XMLHttpRequest();
     request.onreadystatechange = function() {
